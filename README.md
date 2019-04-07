@@ -40,3 +40,5 @@ from .finchpy.finch import finch
 c, num_clust = finch(data, [], 1)
 ```
 ![](1.jpg)
+
+**Evaluation**: haven't be implemented.
