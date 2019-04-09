@@ -27,18 +27,21 @@ def finch(data, initial_rank, verbose):
     Affinity_, orig_dist, _ = clustRank(data, initial_rank)
     # Affinity_ = coo_matrix(a)
     # orig_dist = None
-    print("Affinity Time: {}".format(time.time()-t0))
+    if verbose == 1:
+        print("Affinity Time: {}".format(time.time()-t0))
     
     initial_rank = []
 
     t1= time.time()
     Group_ = get_clust(Affinity_, [], np.inf)
-    print("Clusting Time: {}".format(time.time()-t1))
+    if verbose == 1:
+        print("Clusting Time: {}".format(time.time()-t1))
     # print(Group_.shape, np.max(Group_), np.unique(Group_))
     
     t2= time.time()
     c, num_clust, mat = get_merge([], Group_, data)
-    print("Merge Time: {}".format(time.time()-t2))
+    if verbose == 1:
+        print("Merge Time: {}".format(time.time()-t2))
 
     if verbose == 1:
         print("Partition 0 : %d clusters\n" % (num_clust))
